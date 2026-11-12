@@ -2,10 +2,10 @@ import streamlit as st
 import os
 import time
 import json
-from extractors import extract_text
-from merger import scan_document
-from redactor import redact_text
-from report import generate_report
+from core.extractors import extract_text
+from core.merger import scan_document
+from core.redactor import redact_text
+from core.report import generate_report
 
 st.set_page_config(page_title="RedactFlow | Nima Sharifi Niko",
                    page_icon="🔒", layout="wide")
