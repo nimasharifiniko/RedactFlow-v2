@@ -3,6 +3,7 @@ import os
 import time
 import json
 
+from scanner_ui import render_scanner_ui
 from core.extractors import extract_text
 from core.merger import scan_document
 from core.redactor import redact_text
@@ -107,7 +108,8 @@ def main():
         if st.checkbox("Addresses", value=True):
             active_types.add("ADDRESS")
 
-    tab1, tab2 = st.tabs(["📄 Document Redaction", "🔒 AI Gateway"])
+    tab1, tab2, tab3 = st.tabs(
+        ["📄 Document Redaction", "🔒 AI Gateway", "🔍 PII Scanner"])
 
     with tab1:
         uploaded_file = st.file_uploader(
@@ -206,8 +208,8 @@ def main():
                     st.download_button("📊 Download Audit Report", data=report_json,
                                        file_name=f"report_{fname}.json", mime="application/json")
 
-    with tab2:
-        render_gateway_ui()
+    with tab3:
+        render_scanner_ui()
 
 
 if __name__ == "__main__":
